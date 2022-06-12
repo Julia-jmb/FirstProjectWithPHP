@@ -6,6 +6,14 @@
 namespace abfragen; 
 
 class AbfragenDB{
+  
+#über eine magische Funktion wird die pdo-connection als Konstruktor übergeben
+private $connection;
+public function __construct($connection)
+{
+    $this->pdo = $connection; 
+    
+}
                
 #Funktion für die Suche nach Filmstudios
     function getFilmstudios($studioname){
