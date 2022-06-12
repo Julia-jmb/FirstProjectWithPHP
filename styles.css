@@ -1,0 +1,59 @@
+
+/* === GLOBAL ===*/
+
+.container-md {
+    min-height: 70%;
+}
+
+
+.h2{
+    font-size: 1.2rem; 
+}
+
+.container-fluid,
+.btn{
+    background: #2976e9; 
+}
+
+
+
+.btn{
+    border: none; 
+    color: #FFFFFF;  
+    font-weight: bold; 
+}
+
+.btn:hover{
+    background-color: #88aee7e1;
+}
+
+#container-schaupieler,
+#container-studio {
+    margin-top: 3rem; 
+}
+
+
+/* === FOOTER-BEREICH ===*/
+#footer {
+    background-color: #2976e9; 
+    
+  }
+
+ #footer-nav a {
+    text-decoration: none; 
+    color: #FFFFFF;
+  }
+
+#footer-nav a:link {
+    color: #FFFFFF;
+  }
+
+  #footer-nav a:visited {
+    color: #FFFFFF;
+  }
+  #footer-nav a:hover {
+    color: #e6dede;
+  }
+  #footer-nav a:active {
+    color: #FFFFFF;
+  }
