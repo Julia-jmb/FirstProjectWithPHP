@@ -4,12 +4,13 @@
  * 
  */
 namespace abfragen; 
+use PDO; 
 
 class AbfragenDB{
   
 #über eine magische Funktion wird die pdo-connection als Konstruktor übergeben
 private $connection;
-public function __construct($connection)
+public function __construct(PDO $connection)
 {
     $this->pdo = $connection; 
     
@@ -17,9 +18,8 @@ public function __construct($connection)
                
 #Funktion für die Suche nach Filmstudios
     function getFilmstudios($studioname){
-        global $connection;
-        if(!empty($connection)){
-           $gesuchtesFilmstudio = $connection->prepare("SELECT ti.Filmtitel, ti.Erscheinungsdatum, st.studioname
+        if(!empty($this->pdo)){
+           $gesuchtesFilmstudio = $this->pdo->prepare("SELECT ti.Filmtitel, ti.Erscheinungsdatum, st.studioname
            FROM filmstudio AS st
            INNER JOIN filmtitel AS ti ON st.idFilmstudio = ti.fk_idFilmstudio
            WHERE st.studioname LIKE :studioname
@@ -33,9 +33,8 @@ public function __construct($connection)
 
 #Funktion für die Suche nach Schauspielern
     function getSchauspieler($nachname){
-      global $connection;
-      if(!empty($connection)){
-        $gesuchterSchauspieler = $connection->prepare("SELECT sch.vorname, sch.nachname , ti.Filmtitel, st.studioname
+      if(!empty($this->pdo)){
+        $gesuchterSchauspieler = $this->pdo->prepare("SELECT sch.vorname, sch.nachname , ti.Filmtitel, st.studioname
             FROM schauspieler AS sch 
             INNER JOIN besetzung AS bes ON `idSchauspieler`=`schauspieler_idschauspieler`
             INNER JOIN filmtitel AS ti ON `idFilmtitel`=`Filmtitel_idFilmtitel`
